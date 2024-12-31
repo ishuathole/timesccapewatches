@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Buy Timescape Classic Watch</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        /* Product Details Section */
+        .product-details {
+            background-color: #fff;
+            width: 80%;
+            max-width: 1000px;
+            margin-top: 30px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .product-image {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .product-info {
+            flex: 2;
+        }
+
+        .product-info h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .product-info p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .product-info .price {
+            font-size: 1.5rem;
+            color: #007BFF;
+            margin-bottom: 20px;
+        }
+
+        /* Quantity Selection */
+        .quantity-container {
+            margin-bottom: 20px;
+        }
+
+        .quantity-container label {
+            font-size: 1.1rem;
+            margin-right: 10px;
+        }
+
+        .quantity-container input {
+            width: 50px;
+            padding: 5px;
+            font-size: 1.1rem;
+        }
+
+        /* Buttons */
+        .btn {
+            background-color: #007BFF;
+            color: white;
+            padding: 12px 20px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-transform: uppercase;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            position: absolute;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Buy Now - Timescape Classic Watch</h1>
+    </header>
+
+    <!-- Product Details Section -->
+    <section class="product-details">
+        <!-- Product Image -->
+        <div class="product-image">
+            <img src="https://i.pinimg.com/564x/1d/4a/3f/1d4a3f923093cff70d452e8bb53bf6f7.jpg" alt="Timescape Classic Watch">
+        </div>
+
+        <!-- Product Information -->
+        <div class="product-info">
+            <h2>Timescape Classic Watch</h2>
+            <p>A timeless design with modern functionality. Perfect for any occasion. Whether you're heading to the office, a formal event, or just out for the day, this watch will complement your style and keep you on time.</p>
+            <div class="price">$199.99</div>
+
+            <!-- Quantity Selector -->
+            <div class="quantity-container">
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" value="1" min="1" max="10">
+            </div>
+
+            <!-- Buttons -->
+            <a href ="newpay.html" ><button class="btn" onclick="window.location.href='https://www.yourwebsite.com/checkout'">Proceed to payment</button></a>
+            
+        </div>
+    </section>
+
+    
+
+    <!-- JavaScript (for Cart functionality) -->
+    <script>
+        function addToCart() {
+            var quantity = document.getElementById('quantity').value;
+            alert('Added ' + quantity + ' Timescape Classic Watch(es) to your cart!');
+            // Here, you can integrate with your cart system to add the product.
+            // Example: cart.addItem(productId, quantity);
+        }
+    </script>
+
+</body>
+</html>

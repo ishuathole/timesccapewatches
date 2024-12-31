@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Men Watches - Timescape</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e0e0e0; /* Grey background */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        /* Product Grid Styles */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 products per row */
+            gap: 30px;
+            max-width: 1200px;
+            width: 100%;
+            margin: 40px 20px;
+        }
+
+        /* Product Card Styles */
+        .product-card {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .product-card h2 {
+            font-size: 1.5rem;
+            margin: 15px 0;
+            color: #333;
+        }
+
+        .product-card p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* Button Styles */
+        .product-btn {
+            background-color: #007BFF;
+            color: #fff;
+            font-size: 1rem;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: background-color 0.3s;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .product-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: 2rem;
+            margin: 40px 0;
+            text-align: center;
+            color: #333;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Men Watches</h1>
+        <p>Crafted for strength and sophistication</p>
+    </header>
+
+    <!-- Product Grid Section -->
+    <section id="men-products">
+        <h2 class="section-title">Our Featured Men's Watches</h2>
+        <div class="products">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <img src=https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaF7vgdu0rtW20tigljsIHMIFvuC-tw-ovMA&s alt="Men Watch 1">
+                <h2>Timescape Classic Men</h2>
+                <p>A timeless watch that complements any style, day or night.</p>
+                <div class="price">$349.99</div>
+                <a href="newpay.html" ><button class="product-btn" onclick="window.location.href='https://www.yourwebsite.com/buy-now/1'">Buy Now</button></a>
+                <button class="product-btn" onclick="addToCart(1)">Add to Cart</button>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <img src=https://i.pinimg.com/736x/1e/28/aa/1e28aad8a518db468d4404d92746f9d5.jpg alt="Men Watch 2">
+                <h2>Timescape Titanium</h2>
+                <p>Built to last with durable titanium and a sleek design.</p>
+                <div class="price">$249.99</div>
+                <a href="newpay.html" ><button class="product-btn" onclick="window.location.href='https://www.yourwebsite.com/buy-now/2'">Buy Now</button></a>
+                <button class="product-btn" onclick="addToCart(2)">Add to Cart</button>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <img src=https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbPllSNOcPQKjTWUekPgSgoMGfHzB5iS6tcA&s alt="Men Watch 3">
+                <h2>Timescape Sport Men</h2>
+                <p>Engineered for adventure. A rugged watch that performs under pressure.</p>
+                <div class="price">$199.99</div>
+                <a href="newpay.html" ><button class="product-btn" onclick="window.location.href='https://www.yourwebsite.com/buy-now/3'">Buy Now</button></a>
+                <button class="product-btn" onclick="addToCart(3)">Add to Cart</button>
+            </div>
+
+            
+        </div>
+    </section>
+
+    <!-- JavaScript (for Cart functionality) -->
+    <script>
+        // Function to handle adding a product to the cart (this would be connected to your cart system)
+        function addToCart(productId) {
+            alert('Product ' + productId + ' added to cart!');
+            // You can replace the above alert with actual logic for adding the product to the cart
+            // Example: 
+            // cart.addItem(productId);
+        }
+    </script>
+
+</body>
+</html>

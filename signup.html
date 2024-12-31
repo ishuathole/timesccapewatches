@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f8f9fa;
+      margin: 0;
+    }
+
+    .signup-form {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      width: 300px;
+    }
+
+    .signup-form h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .signup-form input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .signup-form button {
+      width: 100%;
+      padding: 10px;
+      background-color: #28a745;
+      border: none;
+      border-radius: 4px;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .signup-form button:hover {
+      background-color: #218838;
+    }
+
+    .signup-form p {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .signup-form p a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .signup-form p a:hover {
+      text-decoration: underline;
+    }
+  </style>
+  <script>
+    function signUp(event) {
+      event.preventDefault();
+
+      // Get user input values
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+
+      // Validation: Ensure fields are filled
+      if (!email || !password || !confirmPassword) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      // Validation: Password confirmation
+      if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return;
+      }
+
+      // Save user data to localStorage
+      const users = JSON.parse(localStorage.getItem("users")) || [];
+      const userExists = users.some(user => user.email === email);
+
+      if (userExists) {
+        alert("User with this email already exists.");
+        return;
+      }
+
+      users.push({ email, password });
+      localStorage.setItem("users", JSON.stringify(users));
+
+      alert("Sign-Up Successful! You can now log in.");
+      window.location.href = "login.html"; // Redirect to login page
+    }
+  </script>
+</head>
+<body>
+  <form class="signup-form" onsubmit="signUp(event)">
+    <h2>Sign Up</h2>
+    <input type="email" id="email" placeholder="Enter your email" required>
+    <input type="password" id="password" placeholder="Enter your password" required>
+    <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+    <button type="submit">Sign Up</button>
+    <p>Already have an account? <a href="login.html">Log In</a></p>
+  </form>
+</body>
+</html>

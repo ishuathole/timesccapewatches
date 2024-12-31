@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #97d5f3;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .cart-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        .cart-item p {
+            margin: 0;
+        }
+
+        .cart-footer {
+            text-align: center;
+            padding: 15px;
+        }
+
+        .cart-footer button {
+            padding: 10px 20px;
+            background-color: #9ae8f3;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .cart-footer button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="cart-container">
+        <h2>Your Shopping Cart</h2>
+        <div id="cart-items">
+            <!-- Cart items will be added dynamically here -->
+        </div>
+
+        <div class="cart-footer">
+          <a href="newpay.html"> <button onclick="proceedToCheckout()">Proceed to Checkout</button></a>
+           <button onclick="emptyCart()">Empty Cart</button>
+        <a href="index.html">   <button>Back to home</button></a>
+
+        </div>
+    </div>
+
+    <script>
+        // Function to load cart items from localStorage
+        function loadCart() {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+            // Get the cart container to display the items
+            let cartContainer = document.getElementById("cart-items");
+
+            if (cart.length === 0) {
+                cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+            } else {
+                cartContainer.innerHTML = "";
+                cart.forEach(item => {
+                    const cartItem = document.createElement("div");
+                    cartItem.classList.add("cart-item");
+                    cartItem.innerHTML = `
+                        <img src="${item.image}" alt="${item.name}">
+                        <p>${item.name}</p>
+                        <p>$${item.price}</p>
+                    `;
+                    cartContainer.appendChild(cartItem);
+                });
+            }
+        }
+
+        // Function to proceed to checkout (you can extend this for actual checkout process)
+        function proceedToCheckout() {
+            alert("Proceeding to checkout...");
+            // You can implement checkout logic here
+        }
+
+        // Function to empty the cart
+        function emptyCart() {
+            localStorage.removeItem("cart");
+            loadCart(); // Reload the cart after emptying it
+        }
+
+        // Load the cart when the page loads
+        window.onload = newpay.html;
+    </script>
+
+</body>
+
+</html>

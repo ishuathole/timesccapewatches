@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Timescape Watches</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e0e0e0; /* Grey background */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-image: url(https://img.freepik.com/free-photo/abstract-digital-grid-black-background_53876-97647.jpg);
+        }
+
+        /* Header Section */
+        header {
+            text-align: center;
+            padding: 50px;
+            background-color: #1a7680;
+            color: #fff;
+            width: 100%;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        /* Search Bar */
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        .search-bar input {
+            padding: 10px;
+            font-size: 1rem;
+            width: 300px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .search-bar button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-left: 10px;
+        }
+
+        .search-bar button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Navigation Menu */
+        nav {
+            background-color: #0f7674;
+            width: 100%;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            font-size: 1.2rem;
+            margin: 0 20px;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        nav a:hover {
+            color: #007BFF;
+        }
+
+        /* Product Grid Styles */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 products per row */
+            gap: 30px;
+            max-width: 1200px;
+            width: 100%;
+            margin: 40px 20px;
+        }
+
+        /* Product Card Styles */
+        .product-card {
+            background-color: #2c2c2c;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 350px; /* Fixed height for all product images */
+            object-fit: cover; /* Ensures the images maintain aspect ratio */
+            border-radius: 8px;
+        }
+
+        .product-card h2 {
+            font-size: 1.5rem;
+            margin: 15px 0;
+            color: #eff0f0;
+        }
+
+        .product-card p {
+            font-size: 1rem;
+            color: #cbc2c2;
+            margin-bottom: 20px;
+        }
+
+        /* Price Tag */
+        .price {
+            font-size: 1.2rem;
+            color: #007BFF;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        /* Buy Now Button */
+        .buy-now-btn {
+            background-color: #007BFF;
+            color: #fff;
+            font-size: 1rem;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: background-color 0.3s;
+            width: 100%;
+            margin-bottom: 10px; /* Space between buttons */
+        }
+
+        .buy-now-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Add to Cart Button */
+        .add-to-cart-btn {
+            background-color: #28a745;  /* Green button color */
+            color: white;
+            font-size: 1rem;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #218838; /* Darker green for hover effect */
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: 2rem;
+            margin: 40px 0;
+            text-align: center;
+            color: #eeeaea;
+        }
+
+        /* Section Links */
+        .section-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .section-links a {
+            font-size: 1.2rem;
+            color: #007BFF;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .section-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Timescape Watches</h1>
+        <p>Timeless Elegance, Unmatched Precision</p>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <input type="text" placeholder="Search for watches..." id="searchInput">
+        <button onclick="searchFunction()">Search</button>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <a href="women.html">Women</a>
+        <a href="mens.html">Men</a>
+        
+        
+        
+        <a href="sale.html">Sale</a>
+        <a href="aboutus.html">About Us</a> 
+        <a href="login.html">login</a>
+        <a href="contactus.html">contactus</a>
+    </nav>
+
+    <!-- Product Grid Section -->
+    <section id="products">
+        <h2 class="section-title">Our Featured Watches</h2>
+        <div class="products">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <img src="https://i.pinimg.com/564x/1d/4a/3f/1d4a3f923093cff70d452e8bb53bf6f7.jpg" alt="Watch 1">
+                <h2>Timescape Classic</h2>
+                <p>A timeless design with modern functionality. Perfect for any occasion.</p>
+                <div class="price">$199.9</div>
+                <a href="buynow.html"><button class="buy-now-btn" onclick="window.location.href='https://www.yourwebsite.com/buy-now/1'">Buy Now</button></a>
+                <button class="add-to-cart-btn" onclick="addToCart(1)">Add to Cart</button>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <img src="https://i.pinimg.com/736x/73/f4/2e/73f42e3eb2dcd7c5e03795d07afc7e63.jpg" alt="Watch 2">
+                <h2>Timescape Luxury</h2>
+                <p>Experience unparalleled craftsmanship with the Luxury series.</p>
+                <div class="price">$299.99</div>
+                <a href="newpay.html"><button class="buy-now-btn" onclick="window.location.href='https://www.yourwebsite.com/buy-now/2'">Buy Now</button></a>
+                <button class="add-to-cart-btn" onclick="addToCart(2)">Add to Cart</button>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN8zf50iqTsYRCYr3ar-l4tn8gJOmEs31Nsg&s" alt="Watch 3">
+                <h2>Timescape Sport</h2>
+                <p>For the adventurous spirit, built for precision and durability.</p>
+                <div class="price">$249.99</div>
+                <a href="newpay.html"><button class="buy-now-btn" onclick="window.location.href='https://www.yourwebsite.com/buy-now/3'">Buy Now</button></a>
+                <button class="add-to-cart-btn" onclick="addToCart(3)">Add to Cart</button>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card">
+                <img src=https://i.pinimg.com/736x/1d/c3/5d/1dc35d37c7e8faab1d846b76450e606f.jpg   alt="Watch 4">
+                <h2>Timescape Retro</h2>
+                <p>A blend of vintage design and modern mechanics, for the classic enthusiast.</p>
+                <div class="price">$179.99</div>
+                <a href="newpay.html" ><button class="buy-now-btn" onclick="window.location.href='https://www.yourwebsite.com/buy-now/4'">Buy Now</button></a>
+                <button class="add-to-cart-btn" onclick="addToCart(4)">Add to Cart</button>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product-card">
+                <img src=https://i.pinimg.com/originals/1c/6d/99/1c6d995b7e68aad81632dea400d59f6c.jpg alt="Watch 5">
+                <h2>Timescape Smart</h2>
+                <p>Smart features combined with traditional elegance.</p>
+                <div class="price">$349.99</div>
+                <a href="newpay.html" ><button class="buy-now-btn" onclick="window.location.href='https://www.yourwebsite.com/buy-now/5'">Buy Now</button></a>
+                <button class="add-to-cart-btn" onclick="addToCart(5)">Add to Cart</button>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card">
+
+
+                <img src= https://i.pinimg.com/736x/01/c9/b9/01c9b9bbb61ad9f1f1c564ba3923f479.jpg   alt="Watch 6">
+                <h2>Timescape Limited </h2>
+                <p>Exclusive design with limited availability. A true collector's piece.</p>
+                <div class="price">$499.99</div>
+                <a href="newpay.html" ><button class="buy-now-btn" onclick="window.location.href='https://www.yourwebsite.com/buy-now/6'">Buy Now</button></a>
+                <button class="add-to-cart-btn" onclick="addToCart(6)">Add to Cart</button>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript to Handle Cart Actions -->
+    <script>
+        function addToCart(productId) {
+            console.log('Product ' + productId + ' added to cart.');
+            // Further logic to update the cart can be implemented here
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sale - Timescape</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e0e0e0; /* Grey background */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        /* Search Bar Styles */
+        .search-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .search-container input {
+            width: 300px;
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        /* Product Grid Styles */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 products per row */
+            gap: 30px;
+            max-width: 1200px;
+            width: 100%;
+            margin: 40px 20px;
+        }
+
+        /* Product Card Styles */
+        .product-card {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+            position: relative;
+        }
+
+        .product-card img {
+            width: 100%; /* Ensures the image takes full width of the container */
+            height: 350px; /* Fix height for all images */
+            object-fit: cover; /* Ensures images maintain aspect ratio without distortion */
+            border-radius: 8px;
+        }
+
+        .product-card h2 {
+            font-size: 1.5rem;
+            margin: 15px 0;
+            color: #333;
+        }
+
+        .product-card p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .sale-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: #ff0000;
+            color: #fff;
+            padding: 5px 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        /* Button Styles */
+        .product-btn {
+            background-color: #007BFF;
+            color: #fff;
+            font-size: 1rem;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: background-color 0.3s;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .product-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: 2rem;
+            margin: 40px 0;
+            text-align: center;
+            color: #333;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Sale Items</h1>
+        <p>Hurry! Get the best deals on our exclusive collection of watches and accessories.</p>
+    </header>
+
+    <!-- Search Bar Section -->
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search for a product..." oninput="searchProduct()">
+    </div>
+
+    <!-- Product Grid Section -->
+    <section id="sale-products">
+        <h2 class="section-title">Featured Sale Products</h2>
+        <div class="products" id="productGrid">
+            <!-- Product 1 -->
+            <div class="product-card" data-name="Timescape Classic Watch" data-price="199.99" data-image="https://i.pinimg.com/736x/39/11/8a/39118adf9a34fc1afb7f8b0368bf9c81.jpg">
+                <span class="sale-badge">50% OFF</span>
+                <img src="https://i.pinimg.com/736x/39/11/8a/39118adf9a34fc1afb7f8b0368bf9c81.jpg" alt="Timescape Classic Watch">
+                <h2>Timescape Classic Watch</h2>
+                <p>Classic design meets unbeatable value. A must-have for any collection.</p>
+                <div class="price">$199.99</div>
+                <a href="newpay.html"><button>buy now</button></a>
+                <button class="product-btn" onclick="addToCart('Timescape Classic Watch', 199.99, 'https://i.pinimg.com/736x/39/11/8a/39118adf9a34fc1afb7f8b0368bf9c81.jpg')">Add to Cart</button>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card" data-name="Timescape Sport Watch" data-price="249.99" data-image="https://i.pinimg.com/736x/99/16/3b/99163bf67d3c44cac40c0cf6737a6f97.jpg">
+                <span class="sale-badge">30% OFF</span>
+                <img src="https://i.pinimg.com/736x/99/16/3b/99163bf67d3c44cac40c0cf6737a6f97.jpg" alt="Timescape Sport Watch">
+                <h2>Timescape Sport Watch</h2>
+                <p>A sporty and durable watch for the adventurer in you. Now at an unbeatable price!</p>
+                <div class="price">$249.99</div>
+                <a href="newpay.html"><button>buy now</button></a>
+                <button class="product-btn" onclick="addToCart('Timescape Sport Watch', 249.99, 'https://i.pinimg.com/736x/99/16/3b/99163bf67d3c44cac40c0cf6737a6f97.jpg')">Add to Cart</button>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card" data-name="Timescape Luxury" data-price="349.99" data-image="https://images.meesho.com/images/products/424870736/0grqr_512.webp">
+                <span class="sale-badge">40% OFF</span>
+                <img src="https://images.meesho.com/images/products/424870736/0grqr_512.webp" alt="Timescape Luxury Watch">
+                <h2>Timescape Luxury</h2>
+                <p>Elegance in every detail. Enjoy exclusive savings on our luxury collection.</p>
+                <div class="price">$349.99</div>
+                <a href="newpay.html"><button>buy now</button></a>
+                <button class="product-btn" onclick="addToCart('Timescape Luxury', 349.99, 'https://images.meesho.com/images/products/424870736/0grqr_512.webp')">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript (for Cart and Search functionality) -->
+    <script>
+        // Function to handle adding a product to the cart
+        function addToCart(productName, productPrice, productImage) {
+            // Get the cart from localStorage or initialize an empty array
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    
+            // Add the selected product to the cart array
+            cart.push({ name: productName, price: productPrice, image: productImage });
+    
+            // Save the updated cart back to localStorage
+            localStorage.setItem("cart", JSON.stringify(cart));
+    
+            // Optionally alert the user
+            alert(productName + " added to cart!");
+    
+            // Redirect to cart page
+            window.location.href = "mycart.html";
+        }
+
+        // Function to filter products based on the search input
+        function searchProduct() {
+            let searchInput = document.getElementById("searchInput").value.toLowerCase();
+            let productCards = document.querySelectorAll(".product-card");
+
+            // Loop through product cards and hide or show based on the search query
+            productCards.forEach(card => {
+                let productName = card.getAttribute("data-name").toLowerCase();
+                if (productName.includes(searchInput)) {
+                    card.style.display = "block"; // Show card
+                } else {
+                    card.style.display = "none"; // Hide card
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
